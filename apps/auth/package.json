@@ -1,0 +1,13 @@
+{
+  "name": "auth",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon src/index.ts",
+    "build": "echo building",
+    "start": "echo starting",
+    "lint": "echo linting"
+  },
+  "dependencies": {
+    "http-server": "*"
+  }
+}
