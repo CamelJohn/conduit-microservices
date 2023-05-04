@@ -1,13 +1,11 @@
 import { Router } from "express";
 
 import {
-  login,
-  register,
+  canCreate,
   validateCreateBody,
-  validateRegisterBody,
 } from "./middleware";
 
 export const router = Router();
 
-router.post("", validateCreateBody);
+router.post("", validateCreateBody, canCreate);
 

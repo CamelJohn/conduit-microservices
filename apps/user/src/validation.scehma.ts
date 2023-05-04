@@ -1,6 +1,6 @@
 import Joi from "joi";
 
-export const registerBodyValidationSchema = Joi.object({
+export const createBodyValidationSchema = Joi.object({
   user: Joi.object({
     email: Joi.string().email().required(),
     username: Joi.string().required(),

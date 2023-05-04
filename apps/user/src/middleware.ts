@@ -2,15 +2,15 @@ import { NextFunction, Request, Response } from "express";
 import { UnprocessableEntity } from "http-errors";
 import {
   loginBodyValidationSchema,
-  registerBodyValidationSchema,
+  createBodyValidationSchema,
 } from "./validation.scehma";
 
-export async function validateRegisterBody(
+export async function validateCreateBody(
   req: Request,
   res: Response,
   next: NextFunction
 ) {
-  const isValid = registerBodyValidationSchema.validate(req.body);
+  const isValid = createBodyValidationSchema.validate(req.body);
 
   if (isValid.error) {
     return next(new UnprocessableEntity(isValid.error.message));
@@ -19,7 +19,16 @@ export async function validateRegisterBody(
   next();
 }
 
-export async function validateCreateBody(
+export async function canCreate(req: Request, res: Response, next: NextFunction) {
+    try {
+      // const userExists = 
+      next();
+    } catch (error) {
+      next(error);
+    }
+  }
+
+export async function validateLoginBody(
   req: Request,
   res: Response,
   next: NextFunction
@@ -33,11 +42,7 @@ export async function validateCreateBody(
   next();
 }
 
-export async function register(
-  req: Request,
-  res: Response,
-  next: NextFunction
-) {
+export async function create(req: Request, res: Response, next: NextFunction) {
   // const user = await some bs response
 
   res.status(201).json("user created");
