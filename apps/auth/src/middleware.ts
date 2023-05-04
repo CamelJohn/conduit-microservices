@@ -32,3 +32,15 @@ export async function validateLoginBody(
 
   next();
 }
+
+export async function register(req: Request, res: Response, next: NextFunction) {
+    // const user = await some bs response
+
+    res.status(201).json('user created');
+  }
+
+  export async function login(req: Request, res: Response, next: NextFunction) {
+    // const user = await some bs response
+
+    res.status(200).json('user logged in');
+  }
